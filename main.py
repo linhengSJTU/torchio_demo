@@ -106,12 +106,12 @@ training_transform = tio.Compose([
 
 for one_subject in dataset:
     image0 = one_subject.mri
-    plt.imshow(image0.data[0, 80, :, :])
+    plt.imshow(image0.data[0, int(image0.shape[1]/2), :, :])
     plt.show()
     break
 dataset_augmented = SubjectsDataset(subjects, transform=training_transform)
 for one_subject in dataset_augmented:
     image = one_subject.mri
-    plt.imshow(image.data[0, 80, :, :]-image0.data[0, 80, :, :])
+    plt.imshow(image.data[0, int(image.shape[1]/2), :, :])
     plt.show()
-    break
+    pass
